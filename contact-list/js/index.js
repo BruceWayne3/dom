@@ -1,7 +1,11 @@
 'use strict';
 const contacts = document.querySelector('.contacts-list');
 contacts.innerHTML = ''; 
-const downloadedContacts = JSON.parse(loadContacts()); 
+try {
+	const downloadedContacts = JSON.parse(loadContacts());
+} catch (e) {
+	console.error (e.name, e.message);
+};
 
 function showContacts(downloadedContacts) {
 	let newContacts;
